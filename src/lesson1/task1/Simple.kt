@@ -49,8 +49,8 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main() {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+    val result = thirdDigit(100)
+    println("result = $result")
 }
 
 /**
@@ -92,7 +92,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int) = (number / 100) % 10
 
 /**
  * Простая
@@ -118,4 +118,12 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    var unReversed = number
+    val firstDigit = (unReversed % 10) * 100
+    unReversed /= 10
+    val secondDigit = (unReversed % 10) * 10
+    unReversed /= 10
+    val thirdDigit = (unReversed % 10)
+    return (firstDigit + secondDigit + thirdDigit)
+}
